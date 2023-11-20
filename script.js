@@ -17,7 +17,7 @@
         mensagem.textContent = 'Você acertou! Pode avançar duas casas.';
         // Lógica para avançar duas casas aqui
       } else {
-        mensagem.textContent = 'Você errou! Volte cinco casas.';
+        mensagem.textContent = 'Você errou! Volte cinco casas. A correta é letra B';
         // Lógica para voltar duas casas aqui
       }
 
