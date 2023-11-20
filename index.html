@@ -37,15 +37,26 @@
 
   <div id="pergunta">Qual era o principal objetivo da presença dos norte-americanos em Natal durante a Segunda Guerra Mundial?</div>
   <div id="alternativas">
-    <button onclick="verificarResposta('A')">A) Exploração de recursos naturais  </button>
-    <button onclick="verificarResposta('B')">B) Apoio logístico às operações militares </button>
-    <button onclick="verificarResposta('C')">C) Estabelecimento de uma colônia militar  </button>
+    <button onclick="verificarResposta('A')" id="btnA">A) Exploração de recursos naturais</button>
+    <button onclick="verificarResposta('B')" id="btnB">B) Apoio logístico às operações militares</button>
+    <button onclick="verificarResposta('C')" id="btnC">C) Estabelecimento de uma colônia militar</button>
   </div>
   <div id="mensagem"></div>
 
   <script>
+    var jogoAtivo = true;
+
     function verificarResposta(resposta) {
+      if (!jogoAtivo) {
+        return;
+      }
+
       var mensagem = document.getElementById('mensagem');
+      var btnA = document.getElementById('btnA');
+      var btnB = document.getElementById('btnB');
+      var btnC = document.getElementById('btnC');
+
+      jogoAtivo = false; // Desativa o jogo após a primeira jogada
 
       if (resposta === 'B') {
         mensagem.textContent = 'Você acertou! Pode avançar duas casas.';
@@ -54,6 +65,11 @@
         mensagem.textContent = 'Você errou! Volte cinco casas.';
         // Lógica para voltar duas casas aqui
       }
+
+      // Desativa os botões após a jogada
+      btnA.disabled = true;
+      btnB.disabled = true;
+      btnC.disabled = true;
     }
   </script>
 </body>
